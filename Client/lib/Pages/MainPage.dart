@@ -41,6 +41,17 @@ class _MainPageState extends State<MainPage> {
     );
   }
 
+  void editTask(int targetTaskIndex) {
+    print("edit");
+    print(targetTaskIndex);
+  }
+
+  void deleteTask(int targetTaskIndex) {
+    print("delete");
+    print(targetTaskIndex);
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,7 +71,11 @@ class _MainPageState extends State<MainPage> {
         padding: EdgeInsets.symmetric(vertical: 12, horizontal: 14),
         itemCount: tasks.length,
         itemBuilder: (BuildContext context, int index) {
-          return TaskCard(task: this.tasks[index]);
+          return TaskCard(
+            task: this.tasks[index],
+            onPressEditTaskButton: () => { editTask(index) },
+            onPressDeleteTaskButton: () => { deleteTask(index) },
+          );
         }
       ),
 

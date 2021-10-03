@@ -48,24 +48,29 @@ class TaskCard extends StatelessWidget {
                   ]
                 )
               ),
-              ElevatedButton(
-                onPressed: onPressEditTaskButton,
-                child: Row(
-                  children: [
-                    Icon(Icons.edit),
-                    Text("Edit")
-                  ]
-                )
-              ),
-              Container(width: 8),
-              ElevatedButton(
-                onPressed: onPressDeleteTaskButton,
-                child: Row(
-                  children: [
-                    Icon(Icons.delete),
-                    Text("Delete")
-                  ]
-                )
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  ElevatedButton(
+                    onPressed: onPressEditTaskButton,
+                    child: Row(
+                        children: [
+                          Icon(Icons.edit),
+                          Text("Edit")
+                        ]
+                    )
+                  ),
+                  Container(width: 8),
+                  ElevatedButton(
+                    onPressed: onPressDeleteTaskButton,
+                    child: Row(
+                        children: [
+                          Icon(Icons.delete),
+                          Text("Delete")
+                        ]
+                    )
+                  )
+                ]
               )
             ]
           )

@@ -1,13 +1,18 @@
 import "package:business_rules/Enterprise/Task.dart";
 import "package:flutter/material.dart";
 
+
 class TaskCard extends StatelessWidget {
 
   final Task task;
+  final Function onPressEditTaskButton;
+  final Function onPressDeleteTaskButton;
 
   TaskCard({
     Key? key,
-    required this.task
+    required this.task,
+    required this.onPressEditTaskButton,
+    required this.onPressDeleteTaskButton
   }) : super(key: key);
 
 
@@ -33,6 +38,7 @@ class TaskCard extends StatelessWidget {
                 value: task.isDone,
                 onChanged: onClickCheckBox
               ),
+              SizedBox(width: 6),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,24 +54,29 @@ class TaskCard extends StatelessWidget {
                   ]
                 )
               ),
-              ElevatedButton(
-                onPressed: onPressEditTaskButton,
-                child: Row(
-                  children: [
-                    Icon(Icons.edit),
-                    Text("Edit")
-                  ]
-                )
-              ),
-              Container(width: 8),
-              ElevatedButton(
-                onPressed: onPressDeleteTaskButton,
-                child: Row(
-                  children: [
-                    Icon(Icons.delete),
-                    Text("Delete")
-                  ]
-                )
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                    onPressed: onPressEditTaskButton(),
+                    child: Row(
+                      children: [
+                        Icon(Icons.edit),
+                        Text("Edit")
+                      ]
+                    )
+                  ),
+                  SizedBox(height: 8),
+                  ElevatedButton(
+                    onPressed: onPressDeleteTaskButton(),
+                    child: Row(
+                      children: [
+                        Icon(Icons.delete),
+                        Text("Delete")
+                      ]
+                    )
+                  )
+                ]
               )
             ]
           )
@@ -76,13 +87,5 @@ class TaskCard extends StatelessWidget {
 
   void onClickCheckBox(bool? newValue) {
     print(newValue);
-  }
-
-  void onPressEditTaskButton() {
-    // TODO
-  }
-
-  void onPressDeleteTaskButton() {
-    // TODO
   }
 }

@@ -44,7 +44,15 @@ class TaskCard extends StatelessWidget {
                         fontWeight: FontWeight.w700,
                         height: 2.0,
                       )
-                    )
+                    ),
+                    if (task.description != null)
+                      Text(
+                        task.description,
+                        style: TextStyle(
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      )
                   ]
                 )
               ),
